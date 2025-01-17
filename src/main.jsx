@@ -1,12 +1,16 @@
 import { StrictMode } from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { createRoot } from 'react-dom/client'
+import { ChakraProvider } from '@chakra-ui/react'
 import App from './App.jsx'
 
-import Home from './pages/Home.jsx'
+// import Home from './pages/Home.jsx'
 import Menu from './pages/Menu.jsx'
 import Order from './pages/Order.jsx'
-import About from './pages/Menu.jsx'
+import About from './pages/About.jsx'
+import Booking from './pages/Booking.jsx'
+import Cart from './pages/Cart.jsx'
+import UserPage from './pages/UserPage.jsx'
 
 const Route = createBrowserRouter([
   {
@@ -14,29 +18,39 @@ const Route = createBrowserRouter([
     element: <App />,
     children: [
       {
-        path: '/home',
-        element: <Home />
-      },
-      {
-        path: '/Menu',
-        element: <Menu />
-      },
-      {
-        path: '/Order',
+        path: '/order',
         element: <Order />
       },
       {
-        path: '/About',
+        path: '/menu',
+        element: <Menu />
+      },
+      {
+        path: '/about',
         element: <About />
+      },
+      {
+        path: '/booking',
+        element: <Booking />
+      },
+      {
+        path: '/cart',
+        element: <Cart />
+      },
+      {
+        path: '/userpage',
+        element: <UserPage />
       }
-    ]
+    ],
   }
 ])
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <RouterProvider router={Route}/>
-  </StrictMode>,
+    <StrictMode>
+      <ChakraProvider>
+        <RouterProvider router={Route}/>
+      </ChakraProvider>
+    </StrictMode>
 )
 
 

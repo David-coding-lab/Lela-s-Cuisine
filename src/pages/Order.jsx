@@ -1,8 +1,9 @@
+import { Box } from "@chakra-ui/react"
 
 function Order() {
-  return (
-    <div>Order</div>
-  )
+    return (
+        <Box>Order</Box>
+    )
 }
 
 export default Order

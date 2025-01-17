@@ -1,9 +1,12 @@
-import React from 'react'
+import { Box } from "@chakra-ui/react"
+import { Link } from "react-router-dom"
 
-function About() {
+function Menu() {
   return (
-    <div>About</div>
+    <Box>
+      Menu
+    </Box>
   )
 }
 
-export default About
+export default Menu

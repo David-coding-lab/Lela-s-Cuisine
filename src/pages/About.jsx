@@ -1,8 +1,13 @@
+import { Box } from "@chakra-ui/react"
 
 function About() {
-  return (
-    <div>About</div>
-  )
+
+    return (
+        <Box>
+            <p>About</p>
+        </Box>
+
+    )
 }
 
 export default About
