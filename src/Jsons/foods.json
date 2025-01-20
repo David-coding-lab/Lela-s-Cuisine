@@ -2,86 +2,103 @@
     {
         "name": "Beacon-dumplings",
         "price": "$12.99",
-        "image": "src/assets/dishes/Beacon dumplings 1.png"
+        "image": "src/assets/dishes/Beacon dumplings 1.png",
+        "typeOfFood": "Fried Food"
     },
     {
         "name": "Burger",
         "price": "$10.99",
-        "image": "src/assets/dishes/burger 1.png"
+        "image": "src/assets/dishes/burger 1.png",
+        "typeOfFood": "Fried Food"
     },
     {
         "name": "chicken",
         "price": "$8.99",
-        "image": "src/assets/dishes/chicken 1.png"
+        "image": "src/assets/dishes/chicken 1.png",
+        "typeOfFood": "Fried Food"
     },
     {
         "name": "Chip",
         "price": "$8.99",
-        "image": "src/assets/dishes/Chip 1.png"
+        "image": "src/assets/dishes/Chip 1.png",
+        "typeOfFood": "Fried Food"
     },
     {
         "name": "roll",
         "price": "$8.99",
-        "image": "src/assets/dishes/egg roll 1.png"
+        "image": "src/assets/dishes/egg roll 1.png",
+        "typeOfFood": "Pastries"
     },
     {
         "name": "egusi",
         "price": "$8.99",
-        "image": "src/assets/dishes/egusi 1.png"
+        "image": "src/assets/dishes/egusi 1.png",
+        "typeOfFood": "Nija Foods"
     },
     {
         "name": "fish",
         "price": "$8.99",
-        "image": "src/assets/dishes/fried fish 1.png"
+        "image": "src/assets/dishes/fried fish 1.png",
+        "typeOfFood": "Fried Food"
     },
     {
         "name": "fried mean",
         "price": "$8.99",
-        "image": "src/assets/dishes/fried mean 1.png"
+        "image": "src/assets/dishes/fried mean 1.png",
+        "typeOfFood": "Fried Food"
     },
     {
         "name": "Fried rice",
         "price": "$8.99",
-        "image": "src/assets/dishes/Fried rice 1.png"
+        "image": "src/assets/dishes/Fried rice 1.png",
+        "typeOfFood": "Fried Food"
     },
     {
         "name": "fries",
         "price": "$8.99",
-        "image": "src/assets/dishes/fries 1.png"
+        "image": "src/assets/dishes/fries 1.png",
+        "typeOfFood": "Fried Food"
     },
     {
         "name": "Jollof rice",
         "price": "$8.99",
-        "image": "src/assets/dishes/Jollof rice 1.png"
+        "image": "src/assets/dishes/Jollof rice 1.png",
+        "typeOfFood": "Nija Foods"
     },
     {
         "name": "maakouda",
         "price": "$8.99",
-        "image": "src/assets/dishes/maakouda 1.png"
+        "image": "src/assets/dishes/maakouda 1.png",
+        "typeOfFood": "Nija Foods"
     },
     {
         "name": "noodles",
         "price": "$8.99",
-        "image": "src/assets/dishes/noodles 1.png"
+        "image": "src/assets/dishes/noodles 1.png",
+        "typeOfFood": "Chinese Food"
     },
     {
         "name": "seafood",
         "price": "$8.99",
-        "image": "src/assets/dishes/seafood 1.png"
+        "image": "src/assets/dishes/seafood 1.png",
+        "typeOfFood": "Chinese Food"
     },
     {
         "name": "Avocado and Scrambled Eggs",
         "price": "$8.99",
-        "image": "src/assets/dishes/Smashed-Avocado-Toast-with-Soft-Boiled-Egg-web-5 1.png"
+        "image": "src/assets/dishes/Smashed-Avocado-Toast-with-Soft-Boiled-Egg-web-5 1.png",
+        "typeOfFood": "Chinese Food"
     },
     {
         "name": "Tempura",
         "price": "$8.99",
-        "image": "src/assets/dishes/Tempura 1.png"
+        "image": "src/assets/dishes/Tempura 1.png",
+        "typeOfFood": "Nija Foods"
     },
     {
         "name": "Tofu-in-Tomato",
         "price": "$8.99",
-        "image": "src/assets/dishes/Tofu-in-Tomato 1.png"
+        "image": "src/assets/dishes/Tofu-in-Tomato 1.png",
+        "typeOfFood": "Nija Foods"
     }
 ]

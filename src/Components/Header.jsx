@@ -1,4 +1,4 @@
-import { Box, Flex, Image, Text, useMediaQuery } from "@chakra-ui/react"
+import { Box, Flex, Image, Input, Text, useMediaQuery } from "@chakra-ui/react"
 import { Link } from "react-router-dom"
 import { Search2Icon } from "@chakra-ui/icons"
 import fullLogo from '../assets/FullLogo.png'
@@ -40,7 +40,13 @@ function Header() {
                     display={isSmallScreen2 ? 'none' : 'flex'}
                 >
                     <Search2Icon />
-                    <Text>Search</Text>
+                    <Input
+                        placeholder="Search"
+                        w='inherit'
+                        h='inherit'
+                        border='none'
+                        borderRightRadius='20px'
+                    />
                 </Flex>
 
                 {/* Nav Links */}

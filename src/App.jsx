@@ -3,12 +3,14 @@ import './App.css'
 import { Link, Outlet, useNavigate } from 'react-router-dom'
 import { Box, Text } from '@chakra-ui/react'
 import Header from './Components/Header'
+import Carousel from './Components/Carousel'
 
 function App() {
 
   return (
     <Box>
       <Header />
+      <Carousel />
       <Outlet />
       <Text>Hello</Text>
     </Box>
