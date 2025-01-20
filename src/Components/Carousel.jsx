@@ -1,4 +1,4 @@
-import { Box, Flex, Image, Img, Text, useMediaQuery } from '@chakra-ui/react';
+import { Box, Flex, Text, useMediaQuery } from '@chakra-ui/react';
 
 import pastry from'../assets/dishes/pastry-cakes.png'
 import chicken from '../assets/dishes/chicken.png'
@@ -47,20 +47,20 @@ const Carousel = () => {
             borderRadius="8px"
             boxShadow="sm"
             scrollSnapAlign="start"
-            pb='20px'
             backgroundSize='cover'
+            backgroundPosition='center'
             backgroundRepeat='no-repeat'
             backgroundImage={item.image}
-            position='relative'
             cursor='pointer'
+            display='flex'
+            justifyContent='center'
+            alignItems='center'
         >
             <Box
                 w='100%'
                 h={{base: '150px', sm: '200px', md: '350px'}}
-                bottom='1px'
-                position='absolute'
                 bgColor='blackAlpha.400'
-                borderRadius='15px'
+                borderRadius='8px'
                 transition='background-color .3s ease-in-out, color .3s ease-in-out'
                 display='flex'
                 alignItems='end'
