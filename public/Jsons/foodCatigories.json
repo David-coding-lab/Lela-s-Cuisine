@@ -1,0 +1,26 @@
+[
+    {
+        "FoodName": "Fried Food",
+        "FoodImg": "/dishes/pastry-cakes.png"
+    },
+    {
+        "FoodName": "Pastries",
+        "FoodImg": "/dishes/chicken.png"
+    },
+    {
+        "FoodName": "Chinese Food",
+        "FoodImg": "/dishes/chinesee-food 1.png"
+    },
+    {
+        "FoodName": "Nija Foods",
+        "FoodImg": "/dishes/egusi.png"
+    },
+    {
+        "FoodName": "Nija Foods",
+        "FoodImg": "/dishes/egusi.png"
+    },
+    {
+        "FoodName": "Nija Foods",
+        "FoodImg": "/dishes/egusi.png"
+    }
+]

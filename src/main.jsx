@@ -11,12 +11,17 @@ import About from './pages/About.jsx'
 import Booking from './pages/Booking.jsx'
 import Cart from './pages/Cart.jsx'
 import UserPage from './pages/UserPage.jsx'
+import Home from './pages/Home.jsx'
 
 const Route = createBrowserRouter([
   {
     path: '/',
     element: <App />,
     children: [
+      {
+        path: '/home',
+        element: <Home />
+      },
       {
         path: '/order',
         element: <Order />
