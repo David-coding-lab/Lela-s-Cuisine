@@ -1,185 +1,133 @@
-import { AddIcon, SmallAddIcon } from "@chakra-ui/icons"
-import { Box, Button, Flex, HStack, IconButton, Image, Skeleton, Text, useMediaQuery } from "@chakra-ui/react"
+import { AddIcon } from "@chakra-ui/icons";
+import { Box, Flex, IconButton, Text, useMediaQuery } from "@chakra-ui/react";
 import { useContext, useEffect, useState } from "react";
-import { FaHeart, FaRegHeart } from "react-icons/fa"
+import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { AppContext } from "../AppContex";
 import LoadingSkeleton from "../Components/LoadingSkeleton";
 
 function Menu() {
-  const [liked, setLiked] = useState(false); // State to track whether the button is liked
-  const [loading, setLoading] = useState(true)
-  const {foods,setFoods,storedFood,setStoredFood,foodType} = useContext(AppContext)
+  const [loading, setLoading] = useState(true);
+  const { foods, setFoods, storedFood, setStoredFood, foodType } = useContext(AppContext);
   const [filteredFoods, setFilteredFoods] = useState([]); // State for filtered foods
+  const [likedStates, setLikedStates] = useState({}); // State to track liked status for each food
   const [isSmallScreen] = useMediaQuery("(max-width: 1127px)");
 
+  // Fetch food data and handle filtering
+  useEffect(() => {
+    async function fetchFoods() {
+      try {
+        setLoading(true);
 
-  // fetching food structure
-  // if there is any foodType state then it should run a function that shuffles the items to match the foodType
-  // store the food Fetched in the session storage
-
-  // Function that fetches the food
-
-  function FetchFood(){
-
-    // Fetching Foods...
-
-    useEffect(() => {
-      async function fetchFoods() {
-        try {
-          // Check if `storedFood` exists in sessionStorage
-          if (!storedFood) {
-            setLoading(true); // Start loading
-            const response = await fetch('/Jsons/foods.json'); // Fetch the food data
-            if (!response.ok) {
-              throw new Error('Failed to fetch food list');
-            }
-            const data = await response.json();
-            setFoods(data); // Save the fetched data
-            setStoredFood(data); // Save it to context
-            sessionStorage.setItem('foods', JSON.stringify(data)); // Save to sessionStorage
-          } else {
-            // If `storedFood` exists, use it
-            setFoods(storedFood);
-            setLoading(true);
-          }
-
-          // If `foodType` is defined, filter foods based on the type
-          if (foodType) {
-            const filtered = Object.values(storedFood || foods).filter(
-              (item) => item.typeOfFood === foodType
-            );
-            setFilteredFoods(filtered); // Save filtered foods
-          } else {
-            // If no foodType, set filteredFoods to all foods
-            setFilteredFoods(storedFood || foods);
-          }
-        } catch (error) {
-          console.error('Error fetching food data:', error);
-        } finally {
-            setTimeout(() => {
-              setLoading(false)
-            }, 200);; // End loading
+        if (!storedFood) {
+          const response = await fetch("/Jsons/foods.json");
+          if (!response.ok) throw new Error("Failed to fetch food list");
+          const data = await response.json();
+          setFoods(data);
+          setStoredFood(data);
+          sessionStorage.setItem("foods", JSON.stringify(data));
         }
+
+        const allFoods = storedFood || foods;
+        const filtered = foodType
+          ? Object.values(allFoods).filter((item) => item.typeOfFood === foodType)
+          : allFoods;
+
+        setFilteredFoods(filtered);
+
+        // Initialize likedStates dynamically
+        const initialLikedStates = {};
+        filtered.forEach((food) => {
+          initialLikedStates[food.id || food.name] = false; // Use `id` or `name` as unique key
+        });
+        setLikedStates(initialLikedStates);
+      } catch (error) {
+        console.error("Error fetching food data:", error);
+      } finally {
+        setTimeout(() => setLoading(false), 200);
       }
+    }
 
-      fetchFoods(); // Execute the fetch function
-    }, [foodType, storedFood]); // Re-run when `foodType` or `storedFood` changes
+    fetchFoods();
+  }, [foodType, storedFood]);
 
-    // Debug: log the state
-    useEffect(() => {
-      console.log('Foods:', foods);
-      console.log('Filtered Foods:', filteredFoods);
-    }, [foods, filteredFoods]);
-
-  }
-
-  FetchFood()
-
-  // Things Left to be done
-  // Work on the like button
-  // Work on the problem of the image not showing in the developemnt server
-  // add the ads section
-  // add the cart state and functionality when you click on a food
+  // Toggle like state for a specific food item
+  const toggleLike = (id) => {
+    setLikedStates((prev) => ({
+      ...prev,
+      [id]: !prev[id],
+    }));
+  };
 
   return (
     <Flex
-      w='full'
-      maxW='100em'
-      paddingInline={isSmallScreen ? '0' : {md: '90px', lg: '30px'}}
-      alignSelf='center'
-      gap={isSmallScreen ? '100px': '10px'}
+      w="full"
+      maxW="100em"
+      paddingInline={isSmallScreen ? "0" : { md: "90px", lg: "30px" }}
+      alignSelf="center"
+      gap={isSmallScreen ? "100px" : "10px"}
       flexWrap="wrap"
-      justify={isSmallScreen ? 'center' : 'space-evenly'}
+      justify={isSmallScreen ? "center" : "space-evenly"}
     >
       {loading ? (
-        <Flex
-          gap="20px"
-          flexWrap="wrap"
-          justify='space-evenly'
-          align='center'
-        >
-          <LoadingSkeleton />
-          <LoadingSkeleton />
-          <LoadingSkeleton />
+        <Flex gap="20px" flexWrap="wrap" justify="space-evenly" align="center">
           <LoadingSkeleton />
           <LoadingSkeleton />
           <LoadingSkeleton />
         </Flex>
-      ) : filteredFoods && (
-        filteredFoods.map((food, index) => (
-            <Flex
-              w={{ base: "350px", sm: "250px", md: "300px", lg: "350px" }}
-              h={{ base: "250px", sm: "250px", md: "275px", lg: "300px" }}
-              bg="white"
-              justifyContent="space-between"
-              flexDir="column"
-              key={index}
-            >
-              {/* Image Section */}
-              <Box position="relative" height="100%" bgPosition='center' bgSize='cover' bgImage={food.image}>
-                {/* Like Icon */}
-                <IconButton
-                  aria-label="Like"
-                  icon={liked ? <FaHeart /> : <FaRegHeart />} // Toggle icon based on state
-                  color={liked ? "#FD0000" : "red.500"} // Change color based on state
-                  fontSize="24px" // Adjust the icon size
-                  variant="ghost" // Remove background for a cleaner look
-                  onClick={() => setLiked(!liked)} // Toggle state when clicked
-                  _hover={{
-                    color: "#FD0000", // Hover effect
-                    bg: "transparent", // Ensure no background on hover
-                  }}
-                  _focus={{ boxShadow: "none" }} // Remove focus outline for a cleaner design
-                />
-              </Box>
-
-              {/* Content Section */}
-              <Flex justify="space-between" p="3" fontFamily="Mada">
-                <Box>
-                  {/* Food Name */}
-                  <Text fontSize={{ base: "sm", md: "md" }}>{food.name}</Text>
-
-                  {/* Price Section */}
-                  <Flex alignItems="center" mt="1">
-                    <Text
-                      fontSize={{ base: "sm", md: "md" }}
-                      fontWeight="bold"
-                      color="blackAlpha.800"
-                    >
-                      {food.price}
-                    </Text>
-                    <Text
-                      fontSize={{ base: "xs", md: "sm" }}
-                      textDecoration="line-through"
-                      color="gray.500"
-                      ml="2"
-                    >
-                      {food.price / 0.2}
-                    </Text>
-                  </Flex>
-                </Box>
-
-                {/* Add Button */}
-                <Flex
-                  cursor="pointer"
-                  w="50px"
-                  justify="center"
-                  align="center"
-                  h="50px"
-                  bgColor="#5E4949"
-                  borderRadius="10px"
-                >
-                  <AddIcon color="white" />
+      ) : (
+        filteredFoods.map((food) => (
+          <Flex
+            w={{ base: "350px", sm: "250px", md: "300px", lg: "350px" }}
+            h={{ base: "250px", sm: "250px", md: "275px", lg: "300px" }}
+            bg="white"
+            justifyContent="space-between"
+            flexDir="column"
+            key={food.id || food.name} // Use a unique key
+          >
+            <Box position="relative" height="100%" bgPosition="center" bgSize="cover" bgImage={food.image}>
+              <IconButton
+                aria-label="Like"
+                icon={likedStates[food.id || food.name] ? <FaHeart /> : <FaRegHeart />}
+                color={likedStates[food.id || food.name] ? "#FD0000" : "red.500"}
+                fontSize="24px"
+                variant="ghost"
+                onClick={() => toggleLike(food.id || food.name)}
+                _hover={{
+                  color: "#FD0000",
+                  bg: "transparent",
+                }}
+                _focus={{ boxShadow: "none" }}
+              />
+            </Box>
+            <Flex justify="space-between" p="3" fontFamily="Mada">
+              <Box>
+                <Text fontSize={{ base: "sm", md: "md" }}>{food.name}</Text>
+                <Flex alignItems="center" mt="1">
+                  <Text fontSize={{ base: "sm", md: "md" }} fontWeight="bold" color="blackAlpha.800">
+                    {food.price}
+                  </Text>
+                  <Text fontSize={{ base: "xs", md: "sm" }} textDecoration="line-through" color="gray.500" ml="2">
+                    {food.price / 0.2}
+                  </Text>
                 </Flex>
+              </Box>
+              <Flex
+                cursor="pointer"
+                w="50px"
+                justify="center"
+                align="center"
+                h="50px"
+                bgColor="#5E4949"
+                borderRadius="10px"
+              >
+                <AddIcon color="white" />
               </Flex>
             </Flex>
-          ))
-        )}
+          </Flex>
+        ))
+      )}
     </Flex>
-
-  )
+  );
 }
 
-export default Menu
-
-
+export default Menu;
