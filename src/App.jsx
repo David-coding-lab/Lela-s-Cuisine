@@ -2,15 +2,22 @@ import './App.css'
 import { Outlet} from 'react-router-dom'
 import { Box, Text } from '@chakra-ui/react'
 import Header from './Components/Header'
+import { useState } from 'react'
+import { AppContext } from './AppContex'
 
 function App() {
+  const [foods,setFoods] = useState()
+  const [foodType,setFoodType] = useState('')
+  const [storedFood,setStoredFood] = useState(JSON.parse(sessionStorage.getItem('foods')))
+
 
   return (
-    <Box>
-      <Header />
-      <Outlet />
-      <Text>Hello</Text>
-    </Box>
+    <AppContext.Provider value={{foods,setFoods, foodType, setFoodType, storedFood,setStoredFood}}>
+      <Box>
+        <Header />
+        <Outlet />
+      </Box>
+      </AppContext.Provider>
   )
 }
 

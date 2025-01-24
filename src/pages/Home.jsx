@@ -1,14 +1,13 @@
-import { Box} from "@chakra-ui/react";
+import { Box, Flex} from "@chakra-ui/react";
 import Carousel from "../Components/Carousel";
-import { useEffect } from "react";
+import Menu from "./Menu";
 
 function Home() {
-    useEffect(()=>{
-    },[])
     return(
-        <Box>
+        <Flex flexDir='column' gap='20px'>
             <Carousel />
-        </Box>
+            <Menu />
+        </Flex>
     )
 }
 

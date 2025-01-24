@@ -56,7 +56,7 @@ function Header() {
                     gap='24px'
                     width={isSmallScreen2 && '700px'}
                 >
-                    <Link to={'/home'}>Home</Link>
+                    <Link to={''}>Home</Link>
                     <Link to={'/menu'}>Menu</Link>
                     <Link to={'/order'}>Order</Link>
                     <Link to={'/about'}>About</Link>

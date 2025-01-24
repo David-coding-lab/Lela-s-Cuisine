@@ -1,14 +1,14 @@
 import { Box, Flex, Skeleton, Text, useMediaQuery } from '@chakra-ui/react';
 
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { AppContext } from '../AppContex';
 
 const Carousel = () => {
     const [isSmallScreen2] = useMediaQuery("(max-width: 480px)");
     const [fetchedFood,setFetchedFood] = useState()
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(true)
+    const {setFoodType} = useContext(AppContext)
 
-    // things to be done
-    // 3 we need to add the click functionality to the cards
     useEffect(() => {
         setLoading(true)
         fetch('/Jsons/foodCatigories.json') // Use public folder
@@ -20,9 +20,11 @@ const Carousel = () => {
             })
             .then(data => {
                 setFetchedFood(data); // Save data to state if needed
+                setTimeout(() => {
+                    setLoading(false)
+                }, 200);
             })
             .catch(err => console.error('Error fetching data:', err));
-        setLoading(false)
     }, []);
 
     return (
@@ -41,19 +43,39 @@ const Carousel = () => {
         },
         }}
     >
-        {/* add loading skeleton here */}
         {loading ? (
             <Flex gap='20px'>
-                <Skeleton height="350px" width="300px" borderRadius="8px"/>
-                <Skeleton height="350px" width="300px" borderRadius="8px"/>
-                <Skeleton height="350px" width="300px" borderRadius="8px"/>
-                <Skeleton height="350px" width="300px" borderRadius="8px"/>
-                <Skeleton height="350px" width="300px" borderRadius="8px"/>
+                <Skeleton
+                    height = {{base: '150px', sm: '200px', md: '350px'}}
+                    width="300px"
+                    borderRadius="8px"
+                />
+                <Skeleton
+                    height = {{base: '150px', sm: '200px', md: '350px'}}
+                    width="300px"
+                    borderRadius="8px"
+                />
+                <Skeleton
+                    height = {{base: '150px', sm: '200px', md: '350px'}}
+                    width="300px"
+                    borderRadius="8px"
+                />
+                <Skeleton
+                    height = {{base: '150px', sm: '200px', md: '350px'}}
+                    width="300px"
+                    borderRadius="8px"
+                />
+                <Skeleton
+                    height = {{base: '150px', sm: '200px', md: '350px'}}
+                    width="300px"
+                    borderRadius="8px"
+                />
             </Flex>
         ):
             fetchedFood && Object.entries(fetchedFood).map(([fetchedFood,value]) =>{
             return(
                 <Box
+                    onClick={()=> setFoodType(value.FoodName)}
                     key={fetchedFood}
                     minWidth="300px"
                     height = {{base: '150px', sm: '200px', md: '350px'}}

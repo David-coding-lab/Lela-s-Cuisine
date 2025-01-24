@@ -4,7 +4,6 @@ import { createRoot } from 'react-dom/client'
 import { ChakraProvider } from '@chakra-ui/react'
 import App from './App.jsx'
 
-// import Home from './pages/Home.jsx'
 import Menu from './pages/Menu.jsx'
 import Order from './pages/Order.jsx'
 import About from './pages/About.jsx'
@@ -19,7 +18,7 @@ const Route = createBrowserRouter([
     element: <App />,
     children: [
       {
-        path: '/home',
+        path: '',
         element: <Home />
       },
       {
@@ -57,75 +56,3 @@ createRoot(document.getElementById('root')).render(
       </ChakraProvider>
     </StrictMode>
 )
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import { StrictMode } from 'react'
-// import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-// import { createRoot } from 'react-dom/client'
-// import App from './App.jsx'
-// // import './index.css'
-
-// import Home from './pages/Home.jsx'
-// import About from './pages/About.jsx'
-
-
-// const Router = createBrowserRouter([
-//   {
-//     path: '/',
-//     element: <App />,
-//     children: [
-//       {
-//         path: '/home',
-//         element: <Home />,
-//       },
-//       {
-//         path: '/about',
-//         element: <About />,
-//       }, 
-//       // Add more routes here as needed
-//     ],
-//   },
-//   // Add more routes here as needed
-//   // {
-//   //   path: '/about',
-//   //   element: <About />,
-//   // },
-//   // {
-//   //   path: '/contact',
-//   //   element: <Contact />,
-//   // },
-//   // {
-//   //   path: '*',
-//   //   element: <NotFound />,
-//   // },
-// ]);
-
-// createRoot(document.getElementById('root')).render(
-//   <StrictMode>
-//     <RouterProvider router={Router} /> 
-//   </StrictMode>,
-// )
