@@ -3,121 +3,121 @@
     {
         "name": "Beacon-dumplings",
         "price": 14500,
-        "image": "src/assets/dishes/Beacon dumplings 1.png",
+        "image": "/dishes/Beacon dumplings 1.png",
         "typeOfFood": "Fried Food"
     },
     {
         "name": "Burger",
         "price": 14500,
-        "image": "src/assets/dishes/burger 1.png",
+        "image": "/dishes/burger 1.png",
         "typeOfFood": "Fried Food"
     },
     {
         "name": "chicken",
         "price": 4500,
-        "image": "src/assets/dishes/chicken.png",
+        "image": "/dishes/chicken.png",
         "typeOfFood": "Fried Food"
     },
     {
         "name": "Chip",
         "price": 4500,
-        "image": "src/assets/dishes/Chip 1.png",
+        "image": "/dishes/Chip 1.png",
         "typeOfFood": "Fried Food"
     },
     {
         "name": "roll",
         "price": 4500,
-        "image": "src/assets/dishes/egg roll 1.png",
+        "image": "/dishes/egg roll 1.png",
         "typeOfFood": "Pastries"
     },
     {
         "name": "egusi",
         "price": 4500,
-        "image": "src/assets/dishes/egusi.png",
+        "image": "/dishes/egusi.png",
         "typeOfFood": "Nija Foods"
     },
     {
         "name": "Fried rice",
         "price": 4500,
-        "image": "src/assets/dishes/Fried rice 1.png",
+        "image": "/dishes/Fried rice 1.png",
         "typeOfFood": "Fried Food"
     },
     {
         "name": "fish",
         "price": 4500,
-        "image": "src/assets/dishes/fried fish 1.png",
+        "image": "/dishes/fried fish 1.png",
         "typeOfFood": "Fried Food"
     },
     {
         "name": "fried mean",
         "price": 4500,
-        "image": "src/assets/dishes/fried mean 1.png",
+        "image": "/dishes/fried mean 1.png",
         "typeOfFood": "Fried Food"
     },
     {
         "name": "Fried rice",
         "price": 4500,
-        "image": "src/assets/dishes/Fried rice 1.png",
+        "image": "/dishes/Fried rice 1.png",
         "typeOfFood": "Fried Food"
     },
     {
         "name": "fries",
         "price": 4500,
-        "image": "src/assets/dishes/fries 1.png",
+        "image": "/dishes/fries 1.png",
         "typeOfFood": "Fried Food"
     },
     {
         "name": "Jollof rice",
         "price": 4500,
-        "image": "src/assets/dishes/Jollof rice 1.png",
+        "image": "/dishes/Jollof rice 1.png",
         "typeOfFood": "Nija Foods"
     },
     {
         "name": "maakouda",
         "price": 4500,
-        "image": "src/assets/dishes/maakouda 1.png",
+        "image": "/dishes/maakouda 1.png",
         "typeOfFood": "Nija Foods"
     },
     {
         "name": "Fried rice",
         "price": 4500,
-        "image": "src/assets/dishes/Fried rice 1.png",
+        "image": "/dishes/Fried rice 1.png",
         "typeOfFood": "Fried Food"
     },
     {
         "name": "noodles",
         "price": 4500,
-        "image": "src/assets/dishes/noodles 1.png",
+        "image": "/dishes/noodles 1.png",
         "typeOfFood": "Chinese Food"
     },
     {
         "name": "seafood",
         "price": 4500,
-        "image": "src/assets/dishes/seafood 1.png",
+        "image": "/dishes/seafood 1.png",
         "typeOfFood": "Chinese Food"
     },
     {
         "name": "Avocado and Scrambled Eggs",
         "price": 4500,
-        "image": "src/assets/dishes/Smashed-Avocado-Toast-with-Soft-Boiled-Egg-web-5 1.png",
+        "image": "/dishes/Smashed-Avocado-Toast-with-Soft-Boiled-Egg-web-5 1.png",
         "typeOfFood": "Chinese Food"
     },
     {
         "name": "Fried rice",
         "price": 4500,
-        "image": "src/assets/dishes/Fried rice 1.png",
+        "image": "/dishes/Fried rice 1.png",
         "typeOfFood": "Fried Food"
     },
     {
         "name": "Tempura",
         "price": 4500,
-        "image": "src/assets/dishes/Tempura 1.png",
+        "image": "/dishes/Tempura 1.png",
         "typeOfFood": "Nija Foods"
     },
     {
         "name": "Tofu-in-Tomato",
         "price": 4500,
-        "image": "src/assets/dishes/Tofu-in-Tomato 1.png",
+        "image": "/dishes/Tofu-in-Tomato 1.png",
         "typeOfFood": "Nija Foods"
     }
 ]

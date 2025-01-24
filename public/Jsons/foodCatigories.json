@@ -1,26 +1,26 @@
 [
     {
         "FoodName": "Fried Food",
-        "FoodImg": "src/assets/dishes/pastry-cakes.png"
+        "FoodImg": "/dishes/pastry-cakes.png"
     },
     {
         "FoodName": "Pastries",
-        "FoodImg": "src/assets/dishes/chicken.png"
+        "FoodImg": "/dishes/chicken.png"
     },
     {
         "FoodName": "Chinese Food",
-        "FoodImg": "src/assets/dishes/chinesee-food 1.png"
+        "FoodImg": "/dishes/chinesee-food 1.png"
     },
     {
         "FoodName": "Nija Foods",
-        "FoodImg": "src/assets/dishes/egusi.png"
+        "FoodImg": "/dishes/egusi.png"
     },
     {
         "FoodName": "Nija Foods",
-        "FoodImg": "src/assets/dishes/egusi.png"
+        "FoodImg": "/dishes/egusi.png"
     },
     {
         "FoodName": "Nija Foods",
-        "FoodImg": "src/assets/dishes/egusi.png"
+        "FoodImg": "/dishes/egusi.png"
     }
 ]
