@@ -12,6 +12,7 @@ function Header() {
     const [isSmallScreen2] = useMediaQuery("(max-width: 650px)");
     return (
         <Box
+            w='full'
             display='flex'
             flexDir='column'
             justifyContent='center'
@@ -20,6 +21,8 @@ function Header() {
             gap='15px'
             fontFamily='Mogra'
             color='rgba(54, 54, 54, 0.72)'
+            maxW='100em'
+            alignSelf='center'
         >
             <Image src={fullLogo} />
             <Flex

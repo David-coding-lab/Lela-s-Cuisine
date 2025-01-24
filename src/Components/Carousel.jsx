@@ -31,6 +31,9 @@ const Carousel = () => {
 
 
     <Flex
+        w='full'
+        maxW='100em'
+        alignSelf='center'
         overflowX="auto"
         padding="10px"
         paddingTop='30px'

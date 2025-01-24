@@ -1,6 +1,6 @@
 import './App.css'
 import { Outlet} from 'react-router-dom'
-import { Box, Text } from '@chakra-ui/react'
+import { Box, Flex, Text } from '@chakra-ui/react'
 import Header from './Components/Header'
 import { useState } from 'react'
 import { AppContext } from './AppContex'
@@ -13,10 +13,10 @@ function App() {
 
   return (
     <AppContext.Provider value={{foods,setFoods, foodType, setFoodType, storedFood,setStoredFood}}>
-      <Box>
+      <Flex flexDir='column'>
         <Header />
         <Outlet />
-      </Box>
+      </Flex>
       </AppContext.Provider>
   )
 }

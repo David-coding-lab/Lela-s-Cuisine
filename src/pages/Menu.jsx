@@ -1,5 +1,5 @@
 import { AddIcon, SmallAddIcon } from "@chakra-ui/icons"
-import { Box, Button, Flex, HStack, IconButton, Image, Skeleton, Text } from "@chakra-ui/react"
+import { Box, Button, Flex, HStack, IconButton, Image, Skeleton, Text, useMediaQuery } from "@chakra-ui/react"
 import { useContext, useEffect, useState } from "react";
 import { FaHeart, FaRegHeart } from "react-icons/fa"
 import { AppContext } from "../AppContex";
@@ -10,6 +10,9 @@ function Menu() {
   const [loading, setLoading] = useState(true)
   const {foods,setFoods,storedFood,setStoredFood,foodType} = useContext(AppContext)
   const [filteredFoods, setFilteredFoods] = useState([]); // State for filtered foods
+  const [isSmallScreen] = useMediaQuery("(max-width: 1127px)");
+
+
   // fetching food structure
   // if there is any foodType state then it should run a function that shuffles the items to match the foodType
   // store the food Fetched in the session storage
@@ -72,11 +75,29 @@ function Menu() {
 
   FetchFood()
 
+  // Things Left to be done
+  // Work on the like button
+  // Work on the problem of the image not showing in the developemnt server
+  // add the ads section
+  // add the cart state and functionality when you click on a food
 
   return (
-    <Flex gap="20px" flexWrap="wrap">
+    <Flex
+      w='full'
+      maxW='100em'
+      paddingInline={isSmallScreen ? '0' : {md: '90px', lg: '30px'}}
+      alignSelf='center'
+      gap={isSmallScreen ? '100px': '10px'}
+      flexWrap="wrap"
+      justify={isSmallScreen ? 'center' : 'space-evenly'}
+    >
       {loading ? (
-        <Flex gap="20px" flexWrap="wrap">
+        <Flex
+          gap="20px"
+          flexWrap="wrap"
+          justify='space-evenly'
+          align='center'
+        >
           <LoadingSkeleton />
           <LoadingSkeleton />
           <LoadingSkeleton />
