@@ -1,5 +1,5 @@
 import { AddIcon } from "@chakra-ui/icons";
-import { Box, Flex, IconButton, Text, useMediaQuery } from "@chakra-ui/react";
+import { Box, Flex, IconButton, SimpleGrid, Text, useMediaQuery } from "@chakra-ui/react";
 import { useContext, useEffect, useState } from "react";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { AppContext } from "../AppContex";
@@ -10,7 +10,7 @@ function Menu() {
   const { foods, setFoods, storedFood, setStoredFood, foodType } = useContext(AppContext);
   const [filteredFoods, setFilteredFoods] = useState([]); // State for filtered foods
   const [likedStates, setLikedStates] = useState({}); // State to track liked status for each food
-  const [isSmallScreen] = useMediaQuery("(max-width: 1127px)");
+  const [isSmallScreen] = useMediaQuery("(max-width: 450px)");
 
   // Fetch food data and handle filtering
   useEffect(() => {
@@ -58,15 +58,19 @@ function Menu() {
     }));
   };
 
+   // Things Left to be done
+  // add the ads section
+  // add the cart state and functionality when you click on a food
+
+
+
   return (
-    <Flex
-      w="full"
+    <SimpleGrid
       maxW="100em"
-      paddingInline={isSmallScreen ? "0" : { md: "90px", lg: "30px" }}
-      alignSelf="center"
-      gap={isSmallScreen ? "100px" : "10px"}
-      flexWrap="wrap"
-      justify={isSmallScreen ? "center" : "space-evenly"}
+      columns={{ base: 1, sm: 2, md: 3, lg: 4, xl: 5 }}
+      gridGap='50px'
+      paddingInline='10px'
+      alignSelf='center'
     >
       {loading ? (
         <Flex gap="20px" flexWrap="wrap" justify="space-evenly" align="center">
@@ -77,7 +81,7 @@ function Menu() {
       ) : (
         filteredFoods.map((food) => (
           <Flex
-            w={{ base: "350px", sm: "250px", md: "300px", lg: "350px" }}
+            w={isSmallScreen ? '350px' : 'inherit'}
             h={{ base: "250px", sm: "250px", md: "275px", lg: "300px" }}
             bg="white"
             justifyContent="space-between"
@@ -126,7 +130,7 @@ function Menu() {
           </Flex>
         ))
       )}
-    </Flex>
+    </SimpleGrid>
   );
 }
 
