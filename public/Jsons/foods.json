@@ -30,12 +30,7 @@
         "image": "/dishes/egg roll 1.png",
         "typeOfFood": "Pastries"
     },
-    {
-        "name": "egusi",
-        "price": 4500,
-        "image": "/dishes/egusi.png",
-        "typeOfFood": "Nija Foods"
-    },
+    
     {
         "name": "Fried rice",
         "price": 4500,
@@ -66,12 +61,7 @@
         "image": "/dishes/fries 1.png",
         "typeOfFood": "Fried Food"
     },
-    {
-        "name": "Jollof rice",
-        "price": 4500,
-        "image": "/dishes/Jollof rice 1.png",
-        "typeOfFood": "Nija Foods"
-    },
+    
     {
         "name": "maakouda",
         "price": 4500,

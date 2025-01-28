@@ -4,6 +4,7 @@ import { useContext, useEffect, useState } from "react";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { AppContext } from "../AppContex";
 import LoadingSkeleton from "../Components/LoadingSkeleton";
+import Ads from "../Components/Ads";
 
 function Menu() {
   const [loading, setLoading] = useState(true);
@@ -65,13 +66,19 @@ function Menu() {
 
 
   return (
-    <SimpleGrid
-      maxW="100em"
-      columns={{ base: 1, sm: 2, md: 3, lg: 4, xl: 5 }}
-      gridGap='50px'
-      paddingInline='10px'
+    <Flex
+      w='100%'
+      maxW='150em'
+      flexDir='column'
       alignSelf='center'
+      gap='20px'
     >
+      <Ads />
+      <SimpleGrid
+        columns={{ base: 1, sm: 2, md: 3, lg: 4, xl: 5 }}
+        gridGap='50px'
+        paddingInline='10px'
+      >
       {loading ? (
         <Flex gap="20px" flexWrap="wrap" justify="space-evenly" align="center">
           <LoadingSkeleton />
@@ -81,7 +88,7 @@ function Menu() {
       ) : (
         filteredFoods.map((food) => (
           <Flex
-            w={isSmallScreen ? '350px' : 'inherit'}
+            w='inherit'
             h={{ base: "250px", sm: "250px", md: "275px", lg: "300px" }}
             bg="white"
             justifyContent="space-between"
@@ -131,6 +138,8 @@ function Menu() {
         ))
       )}
     </SimpleGrid>
+
+    </Flex>
   );
 }
 
