@@ -4,8 +4,6 @@ import { Badge, Box, Flex, Icon, IconButton, Text, useMediaQuery } from '@chakra
 import Header from './Components/Header'
 import { useState } from 'react'
 import { AppContext } from './AppContex'
-import { PiCarThin } from 'react-icons/pi'
-import { FaCarTunnel } from 'react-icons/fa6'
 import { BiBasket } from 'react-icons/bi'
 
 function App() {
@@ -16,12 +14,14 @@ function App() {
   const [CartItemsNum, setCartItemsNum] = useState(0)
   const [cartItems, setCartItems] = useState([])
   const [isSmallScreen] = useMediaQuery("(max-width: 991px)");
+  console.log(location);
+  
 
   return (
     <AppContext.Provider value={{foods,setFoods, foodType, setFoodType, storedFood,setStoredFood,CartItemsNum,setCartItemsNum,cartItems, setCartItems}}>
       <Flex flexDir='column'>
         <Header />
-        {isSmallScreen  && location !== '/cart' &&
+        {isSmallScreen  && location.pathname !== '/cart' &&
           <Link to="/cart">
             <Box position="fixed" bottom="20px" right="20px" zIndex="200">
               {/* Cart count badge */}
