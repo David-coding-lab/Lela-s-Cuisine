@@ -9,10 +9,11 @@ function App() {
   const [foods,setFoods] = useState()
   const [foodType,setFoodType] = useState('')
   const [storedFood,setStoredFood] = useState(JSON.parse(sessionStorage.getItem('foods')))
-
+  const [CartItemsNum, setCartItemsNum] = useState(0)
+  const [cartItems, setCartItems] = useState([])
 
   return (
-    <AppContext.Provider value={{foods,setFoods, foodType, setFoodType, storedFood,setStoredFood}}>
+    <AppContext.Provider value={{foods,setFoods, foodType, setFoodType, storedFood,setStoredFood,CartItemsNum,setCartItemsNum,cartItems, setCartItems}}>
       <Flex flexDir='column'>
         <Header />
         <Outlet />

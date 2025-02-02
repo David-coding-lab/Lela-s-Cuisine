@@ -1,5 +1,5 @@
 import { AddIcon } from "@chakra-ui/icons";
-import { Box, Flex, IconButton, SimpleGrid, Text, useMediaQuery } from "@chakra-ui/react";
+import { Box, Flex, IconButton, SimpleGrid, Text, useToast,} from "@chakra-ui/react";
 import { useContext, useEffect, useState } from "react";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { AppContext } from "../AppContex";
@@ -10,8 +10,9 @@ function Menu() {
   const [loading, setLoading] = useState(true);
   const { foods, setFoods, storedFood, setStoredFood, foodType } = useContext(AppContext);
   const [filteredFoods, setFilteredFoods] = useState([]); // State for filtered foods
+  const {setCartItemsNum,setCartItems} = useContext(AppContext)
   const [likedStates, setLikedStates] = useState({}); // State to track liked status for each food
-  const [isSmallScreen] = useMediaQuery("(max-width: 450px)");
+  const toast = useToast()
 
   // Fetch food data and handle filtering
   useEffect(() => {
@@ -60,15 +61,13 @@ function Menu() {
   };
 
    // Things Left to be done
-  // add the ads section
   // add the cart state and functionality when you click on a food
 
 
 
   return (
     <Flex
-      w='100%'
-      maxW='150em'
+      
       flexDir='column'
       alignSelf='center'
       gap='20px'
@@ -130,6 +129,21 @@ function Menu() {
                 h="50px"
                 bgColor="#5E4949"
                 borderRadius="10px"
+                onClick={()=> {
+                  setCartItemsNum(prevNum =>{
+                  return prevNum + 1
+                })
+                toast({
+                  title: 'Items Added.',
+                  description: `${food.name} has been added to cart`,
+                  status: 'success',
+                  duration: 1000,
+                })
+                setCartItems(prevItems =>{
+                  return [...prevItems, food.name]
+                })
+              }
+              }
               >
                 <AddIcon color="white" />
               </Flex>

@@ -32,12 +32,6 @@
     },
     
     {
-        "name": "Fried rice",
-        "price": 4500,
-        "image": "/dishes/Fried rice 1.png",
-        "typeOfFood": "Fried Food"
-    },
-    {
         "name": "fish",
         "price": 4500,
         "image": "/dishes/fried fish 1.png",
@@ -69,12 +63,6 @@
         "typeOfFood": "Nija Foods"
     },
     {
-        "name": "Fried rice",
-        "price": 4500,
-        "image": "/dishes/Fried rice 1.png",
-        "typeOfFood": "Fried Food"
-    },
-    {
         "name": "noodles",
         "price": 4500,
         "image": "/dishes/noodles 1.png",
@@ -91,12 +79,6 @@
         "price": 4500,
         "image": "/dishes/Smashed-Avocado-Toast-with-Soft-Boiled-Egg-web-5 1.png",
         "typeOfFood": "Chinese Food"
-    },
-    {
-        "name": "Fried rice",
-        "price": 4500,
-        "image": "/dishes/Fried rice 1.png",
-        "typeOfFood": "Fried Food"
     },
     {
         "name": "Tempura",

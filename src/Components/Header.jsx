@@ -4,10 +4,12 @@ import { Search2Icon } from "@chakra-ui/icons"
 import fullLogo from '../assets/FullLogo.png'
 import basket from '../assets/basket.png'
 import userIcon from '../assets/user.png'
+import { AppContext } from "../AppContex";
+import { useContext } from "react"
 
 
 function Header() {
-    const cartItemsNumber = 0
+    const {CartItemsNum} = useContext(AppContext)
     const [isSmallScreen] = useMediaQuery("(max-width: 900px)");
     const [isSmallScreen2] = useMediaQuery("(max-width: 650px)");
     return (
@@ -90,7 +92,7 @@ function Header() {
                                     color='white'
                                     fontFamily='Jost'
 
-                                >{cartItemsNumber}</Text>
+                                >{CartItemsNum}</Text>
 
                             </Flex>
                         </Link>
