@@ -4,7 +4,7 @@ import { AppContext } from '../AppContex';
 import { AddIcon, MinusIcon } from '@chakra-ui/icons';
 
 function Cart() {
-    const { cartItems, storedFood } = useContext(AppContext);
+    const { cartItems, storedFood, setIsInCartPage} = useContext(AppContext);
     const [cart, setCart] = useState([]);
     const [isSmallScreen] = useMediaQuery("(max-width: 562px)");
 

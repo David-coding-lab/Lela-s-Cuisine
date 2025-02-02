@@ -1,23 +1,62 @@
 import './App.css'
-import { Outlet} from 'react-router-dom'
-import { Box, Flex, Text } from '@chakra-ui/react'
+import { Link, Outlet, useLocation} from 'react-router-dom'
+import { Badge, Box, Flex, Icon, IconButton, Text, useMediaQuery } from '@chakra-ui/react'
 import Header from './Components/Header'
 import { useState } from 'react'
 import { AppContext } from './AppContex'
+import { PiCarThin } from 'react-icons/pi'
+import { FaCarTunnel } from 'react-icons/fa6'
+import { BiBasket } from 'react-icons/bi'
 
 function App() {
+  const location = useLocation(); // Get current route
   const [foods,setFoods] = useState()
   const [foodType,setFoodType] = useState('')
   const [storedFood,setStoredFood] = useState(JSON.parse(sessionStorage.getItem('foods')))
   const [CartItemsNum, setCartItemsNum] = useState(0)
   const [cartItems, setCartItems] = useState([])
+  const [isSmallScreen] = useMediaQuery("(max-width: 991px)");
 
   return (
     <AppContext.Provider value={{foods,setFoods, foodType, setFoodType, storedFood,setStoredFood,CartItemsNum,setCartItemsNum,cartItems, setCartItems}}>
       <Flex flexDir='column'>
         <Header />
+        {isSmallScreen  && location !== '/cart' &&
+          <Link to="/cart">
+            <Box position="fixed" bottom="20px" right="20px" zIndex="200">
+              {/* Cart count badge */}
+              {CartItemsNum > 0 && (
+                <Badge
+                  position="absolute"
+                  top="-5px"
+                  right="-5px"
+                  bg="red.500"
+                  color="white"
+                  borderRadius="full"
+                  px="8px"
+                  py="4px"
+                  fontSize="sm"
+                  fontWeight="bold"
+                  zIndex='100'
+                >
+                  {CartItemsNum}
+                </Badge>
+              )}
+
+              {/* Basket Icon Button */}
+              <IconButton
+                width="70px"
+                height="70px"
+                borderRadius="50%"
+                bgColor="#554A4A"
+                boxShadow="0px 0px 10px rgba(0, 0, 0, 0.52)"
+                icon={<Icon fontSize="50px" color="white" as={BiBasket} />}
+              />
+            </Box>
+          </Link>
+        }
         <Outlet />
-      </Flex>
+        </Flex>
       </AppContext.Provider>
   )
 }

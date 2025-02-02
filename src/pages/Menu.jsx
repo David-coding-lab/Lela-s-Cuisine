@@ -67,7 +67,6 @@ function Menu() {
 
   return (
     <Flex
-      
       flexDir='column'
       alignSelf='center'
       gap='20px'
