@@ -14,7 +14,6 @@ function App() {
   const [CartItemsNum, setCartItemsNum] = useState(0)
   const [cartItems, setCartItems] = useState([])
   const [isSmallScreen] = useMediaQuery("(max-width: 991px)");
-  console.log(location);
 
 
   return (
