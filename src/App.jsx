@@ -15,7 +15,7 @@ function App() {
   const [cartItems, setCartItems] = useState([])
   const [isSmallScreen] = useMediaQuery("(max-width: 991px)");
   console.log(location);
-  
+
 
   return (
     <AppContext.Provider value={{foods,setFoods, foodType, setFoodType, storedFood,setStoredFood,CartItemsNum,setCartItemsNum,cartItems, setCartItems}}>

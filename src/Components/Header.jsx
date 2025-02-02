@@ -23,7 +23,7 @@ function Header() {
             gap='15px'
             fontFamily='Mogra'
             color='rgba(54, 54, 54, 0.72)'
-            maxW='100em'
+            maxW='150em'
             alignSelf='center'
         >
             <Image src={fullLogo} />
