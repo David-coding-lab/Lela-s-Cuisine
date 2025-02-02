@@ -1,11 +1,15 @@
-import { Box } from "@chakra-ui/react"
+import {Flex, Heading } from "@chakra-ui/react"
 
 function About() {
 
     return (
-        <Box>
-            <p>About</p>
-        </Box>
+        <Flex justify='center' align='center' h='70vh'>
+            <Heading
+                fontFamily='Leckerli One'
+                color='#5E4949'
+                margin='auto'
+            >Under Going Maintenance...</Heading>
+        </Flex>
 
     )
 }
