@@ -1,4 +1,4 @@
-import { Box, Flex, Image, Input, Text, useMediaQuery } from "@chakra-ui/react"
+import { Box, Button, Flex, IconButton, Image, Input, Text, useMediaQuery } from "@chakra-ui/react"
 import { Link } from "react-router-dom"
 import { Search2Icon } from "@chakra-ui/icons"
 import fullLogo from '../assets/FullLogo.png'
@@ -9,7 +9,7 @@ import { useContext } from "react"
 
 
 function Header() {
-    const {CartItemsNum} = useContext(AppContext)
+    const {CartItemsNum,setIsOpen} = useContext(AppContext)
     const [isSmallScreen] = useMediaQuery("(max-width: 900px)");
     const [isSmallScreen2] = useMediaQuery("(max-width: 650px)");
     return (
@@ -97,7 +97,11 @@ function Header() {
                             </Flex>
                         </Link>
                     </Box>
-                    <Link to='userpage'><Image w={{base: '50px', md: '30px'}} src={userIcon}/></Link>
+                    <IconButton
+                        onClick={() => setIsOpen(true)}
+                        bgColor='transparent'
+                        _hover={{bgColor: 'transparent'}}
+                    ><Image w={{base: '50px', md: '30px'}} src={userIcon}/></IconButton>
                 </Flex>
             </Flex>
         </Box>

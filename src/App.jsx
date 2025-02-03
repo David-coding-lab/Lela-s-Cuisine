@@ -5,6 +5,7 @@ import Header from './Components/Header'
 import { useState } from 'react'
 import { AppContext } from './AppContex'
 import { BiBasket } from 'react-icons/bi'
+import UserPage from './pages/UserPage'
 
 function App() {
   const location = useLocation(); // Get current route
@@ -14,12 +15,14 @@ function App() {
   const [CartItemsNum, setCartItemsNum] = useState(0)
   const [cartItems, setCartItems] = useState([])
   const [isSmallScreen] = useMediaQuery("(max-width: 991px)");
+  const [isOpen, setIsOpen] = useState(false);
 
 
   return (
-    <AppContext.Provider value={{foods,setFoods, foodType, setFoodType, storedFood,setStoredFood,CartItemsNum,setCartItemsNum,cartItems, setCartItems}}>
+    <AppContext.Provider value={{foods,setFoods, foodType, setFoodType, storedFood,setStoredFood,CartItemsNum,setCartItemsNum,cartItems, setCartItems,setIsOpen}}>
       <Flex flexDir='column'>
         <Header />
+        <UserPage isOpen={isOpen} onClose={() => setIsOpen(false)}/>
         {isSmallScreen  && location.pathname !== '/cart' &&
           <Link to="/cart">
             <Box position="fixed" bottom="20px" right="20px" zIndex="200">
