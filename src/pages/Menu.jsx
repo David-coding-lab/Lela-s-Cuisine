@@ -78,7 +78,8 @@ function Menu() {
         paddingInline='10px'
       >
       {loading ? (
-        <Flex gap="20px" flexWrap="wrap" justify="space-evenly" align="center">
+        <Flex w='99vw' gap="10px" flexWrap="wrap" justify="space-evenly" align="center">
+          <LoadingSkeleton />
           <LoadingSkeleton />
           <LoadingSkeleton />
           <LoadingSkeleton />
