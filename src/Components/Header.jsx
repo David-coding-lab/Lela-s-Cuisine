@@ -97,11 +97,13 @@ function Header() {
                             </Flex>
                         </Link>
                     </Box>
-                    <IconButton
-                        onClick={() => setIsOpen(true)}
-                        bgColor='transparent'
-                        _hover={{bgColor: 'transparent'}}
-                    ><Image w={{base: '50px', md: '30px'}} src={userIcon}/></IconButton>
+                    {isSmallScreen &&
+                        <IconButton
+                            onClick={() => setIsOpen(prevVal => !prevVal)}
+                            bgColor='transparent'
+                            _hover={{bgColor: 'transparent'}}
+                        ><Image w={{base: '50px', md: '30px'}} src={userIcon}/></IconButton>
+                    }
                 </Flex>
             </Flex>
         </Box>

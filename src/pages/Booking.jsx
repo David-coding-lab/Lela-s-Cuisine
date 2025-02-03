@@ -2,7 +2,7 @@ import { Badge, Box, Button, Flex, HStack, Image, Input, InputGroup, Select, Tex
 import reservationImg from '../assets/reservationImg.png'
 
 function Booking() {
-    const isSmallScreen = useMediaQuery('max-width: 777px')
+    const [isSmallScreen] = useMediaQuery("(max-width: 777px)")
     return (
         <Flex
             justify='space-evenly'
