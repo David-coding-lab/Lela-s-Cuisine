@@ -1,30 +1,34 @@
-import { Badge, Box, Button, Flex, HStack, Image, Input, InputGroup, Select, Text } from '@chakra-ui/react'
+import { Badge, Box, Button, Flex, HStack, Image, Input, InputGroup, Select, Text, useMediaQuery } from '@chakra-ui/react'
 import reservationImg from '../assets/reservationImg.png'
 
 function Booking() {
+    const isSmallScreen = useMediaQuery('max-width: 777px')
     return (
         <Flex
             justify='space-evenly'
             align='center'
             pt='50px'
         >
-            <Flex
-                flexDir='column'
-                align='center'
-                justify='center'
-                gap='10px'
-            >
-                <Text
-                    fontFamily='Leckerli One'
-                    fontSize='x-large'
-                    color='#554A4A'
-                >Book a Reservation</Text>
-                <Image
-                    src={reservationImg}
-                    width={{base: '150px', sm: '200px', md: '250px', lg: '450px'}}
-                />
-            </Flex>
 
+        {
+            !isSmallScreen &&
+                <Flex
+                    flexDir='column'
+                    align='center'
+                    justify='center'
+                    gap='10px'
+                >
+                    <Text
+                        fontFamily='Leckerli One'
+                        fontSize='x-large'
+                        color='#554A4A'
+                    >Book a Reservation</Text>
+                        <Image
+                        src={reservationImg}
+                        width={{base: '150px', sm: '200px', md: '250px', lg: '450px'}}
+                    />
+                </Flex>
+        }
             <Flex
                 w='400px'
                 height='450px'

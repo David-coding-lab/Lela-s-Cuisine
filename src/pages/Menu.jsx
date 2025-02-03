@@ -69,6 +69,7 @@ function Menu() {
     <Flex
       flexDir='column'
       gap='20px'
+      pt='20px'
     >
       <Ads />
       <SimpleGrid
